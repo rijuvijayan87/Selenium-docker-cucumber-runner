@@ -1,0 +1,41 @@
+version: "3"
+services:
+  hub:
+    image: selenium/hub:3.141.59
+    ports:
+      - 4444:4444
+  chrome:
+    image: selenium/node-chrome:3.141.59
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  firefox:
+    image: selenium/node-firefox:3.141.59
+    shm_size: '512m'
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  registration-module-chrome:
+    image: 192.168.0.3:5000/rijuvijayan/selenium-docker-cucumber
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - BROWSER=chrome
+      - HUB_HOST=hub
+      - MODULE=registration-module.xml
+    volumes:
+      - ./test-results/registration-result:/usr/share/selenium-docker-cucumber/test-output
+  registration-module-firefox:
+    image: 192.168.0.3:5000/rijuvijayan/selenium-docker-cucumber
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - BROWSER=firefox
+      - HUB_HOST=hub
+      - MODULE=registration-module.xml
+    volumes:
+      - ./test-results/registration-result:/usr/share/selenium-docker-cucumber/test-output
