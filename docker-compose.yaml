@@ -10,6 +10,8 @@ services:
       - hub
     environment:
       - HUB_HOST=hub
+    ports:
+      5900:5900
   firefox:
     image: selenium/node-firefox:3.141.59
     shm_size: '512m'
@@ -17,6 +19,8 @@ services:
       - hub
     environment:
       - HUB_HOST=hub
+    ports:
+      5901:5900
   registration-module-chrome:
     image: 192.168.0.3:5000/rijuvijayan/selenium-docker-cucumber
     depends_on:
