@@ -31,7 +31,7 @@ services:
       - HUB_HOST=hub
       - MODULE=pegaTestCases
     volumes:
-      - ./test-results/OnlineForm-result:/usr/share/police-automation/target
+      - ./test-results/OnlineForm-result:/usr/share/police-automation/Reports
   OnlineReporting-firefox:
     image: 10.0.3.5:5000/sdt/pega-automated-tests 
     depends_on:
