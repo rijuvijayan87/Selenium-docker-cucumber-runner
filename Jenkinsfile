@@ -16,10 +16,17 @@ pipeline{
                 sh 'docker-compose up OnlineReporting-chrome OnlineReporting-firefox'
             }
         }
+        stage('Cucumber Reports'){
+            steps{
+                cucumber buildStatus: "UNSTABLE",
+                fileIncludePattern: "**/cucumber.json",
+                jsonReportDirectory: 'target'
+            }
+        }
     }
     post{
         always{
-            archiveArtifacts artifacts: 'test-results/**'
+            //archiveArtifacts artifacts: 'test-results/**'
             sh "docker-compose down"
         }
     }

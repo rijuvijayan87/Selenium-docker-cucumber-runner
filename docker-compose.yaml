@@ -31,7 +31,7 @@ services:
       - HUB_HOST=hub
       - MODULE=pegaTestCases
     volumes:
-      - ./test-results/registration-result:/usr/share/police-automation/Reports
+      - ./test-results/cucumber.json:/usr/share/police-automation/target/cucumber.json
   OnlineReporting-firefox:
     image: 10.0.3.5:5000/sdt/pega-automated-tests 
     depends_on:
@@ -42,4 +42,4 @@ services:
       - HUB_HOST=hub
       - MODULE=pegaTestCases
     volumes:
-      - ./test-results/registration-result:/usr/share/police-automation/Reports
+      - ./test-results/cucumber.json:/usr/share/police-automation/target/cucumber.json
