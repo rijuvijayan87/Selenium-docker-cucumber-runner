@@ -16,12 +16,6 @@ pipeline{
                 sh 'docker-compose up OnlineReporting-chrome OnlineReporting-firefox'
             }
         }
-        stage('Cucumber Reports'){
-            steps{
-                fileIncludePattern: "cucumber.json",
-                jsonReportDirectory: 'target'
-            }
-        }
     }
     post{
         always{
