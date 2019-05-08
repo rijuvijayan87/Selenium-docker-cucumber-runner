@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Pull Latest Image'){
             steps{
-                sh "docker pull 192.168.0.3:5000/rijuvijayan/selenium-docker-cucumber"
+                sh "docker pull 192.168.0.3:5000/sdt/pega-automated-tests"
             }
         }
         stage('Start Grid'){
@@ -13,7 +13,7 @@ pipeline{
         }
         stage('Run Test'){
             steps{
-                sh 'docker-compose up registration-module-chrome registration-module-firefox'
+                sh 'docker-compose up OnlineReporting-chrome OnlineReporting-firefox'
             }
         }
     }

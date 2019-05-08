@@ -21,25 +21,25 @@ services:
       - HUB_HOST=hub
     ports:
       - 5901:5900
-  registration-module-chrome:
-    image: 192.168.0.3:5000/rijuvijayan/selenium-docker-cucumber
+  OnlineReporting-chrome:
+    image: 192.168.0.3:5000/sdt/pega-automated-tests
     depends_on:
       - chrome
       - firefox
     environment:
       - BROWSER=chrome
       - HUB_HOST=hub
-      - MODULE=registration-module.xml
+      - MODULE=pegaTestCases
     volumes:
-      - ./test-results/registration-result:/usr/share/selenium-docker-cucumber/test-output
-  registration-module-firefox:
-    image: 192.168.0.3:5000/rijuvijayan/selenium-docker-cucumber
+      - ./test-results/registration-result:/usr/share/police-automation/test-output
+  OnlineReporting-firefox:
+    image: 192.168.0.3:5000/sdt/pega-automated-tests
     depends_on:
       - chrome
       - firefox
     environment:
       - BROWSER=firefox
       - HUB_HOST=hub
-      - MODULE=registration-module.xml
+      - MODULE=pegaTestCases
     volumes:
-      - ./test-results/registration-result:/usr/share/selenium-docker-cucumber/test-output
+      - ./test-results/registration-result:/usr/share/police-automation/test-output
