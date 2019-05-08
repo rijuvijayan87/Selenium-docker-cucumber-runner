@@ -22,7 +22,7 @@ services:
     ports:
       - 5901:5900
   OnlineReporting-chrome:
-    image: 192.168.0.3:5000/sdt/pega-automated-tests
+    image: 10.0.3.5:5000/sdt/pega-automated-tests 
     depends_on:
       - chrome
       - firefox
@@ -33,7 +33,7 @@ services:
     volumes:
       - ./test-results/registration-result:/usr/share/police-automation/Reports
   OnlineReporting-firefox:
-    image: 192.168.0.3:5000/sdt/pega-automated-tests
+    image: 10.0.3.5:5000/sdt/pega-automated-tests 
     depends_on:
       - chrome
       - firefox

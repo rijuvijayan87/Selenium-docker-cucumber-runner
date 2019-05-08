@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Pull Latest Image'){
             steps{
-                sh "docker pull 192.168.0.3:5000/sdt/pega-automated-tests"
+                sh "docker pull 10.0.3.5:5000/sdt/pega-automated-tests"
             }
         }
         stage('Start Grid'){
